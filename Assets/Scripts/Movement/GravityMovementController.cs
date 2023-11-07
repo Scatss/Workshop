@@ -11,18 +11,19 @@ public class GravityMovementController : MonoBehaviour
     
     
     private CharacterController controller;
-    private AudioPlay jumpAudio;
+    [SerializeField] private AudioPlay jumpAudio;
+    private Animator animator;
     
     private Vector2 moveInput;
     private bool jumpInput;
     private Vector3 velocity;
     private bool wasGrounded;
-    
-    
+
+
     void Awake()
     {
        controller = gameObject.GetComponent<CharacterController>();
-       jumpAudio = gameObject.GetComponent<AudioPlay>();
+       animator = gameObject.GetComponent<Animator>();
     }   
     
     void Update()
@@ -42,12 +43,12 @@ public class GravityMovementController : MonoBehaviour
         bool isGrounded = controller.isGrounded;
 
         // Check if character lost contact with ground this frame
-        if (wasGrounded == true && isGrounded == false)
+        if (wasGrounded && isGrounded == false)
         {
             // Has fallen. Play fall sound and/or trigger fall animation etc
         }
         // Check if character gained contact with ground this frame
-        else if (wasGrounded == false && isGrounded == true)
+        else if (wasGrounded == false && isGrounded)
         {
             // Has landed. Play landing sound and/or trigger landing animation etc
         }
@@ -80,6 +81,13 @@ public class GravityMovementController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>().normalized;
+        
+        animator.SetFloat("Speed", velocity.x);
+
+        if (moveInput == Vector2.zero)
+        {
+            animator.SetFloat("Speed", 0);
+        }
     }
 
     // Handle Fire-input
@@ -99,7 +107,12 @@ public class GravityMovementController : MonoBehaviour
         {
             Debug.Log("Jumped!");
             jumpInput = true;
+            animator.SetBool("Jump", true);
             jumpAudio.PlayAudio();
+        }
+        else
+        {
+            animator.SetBool("Jump", false);
         }
     }
 }
