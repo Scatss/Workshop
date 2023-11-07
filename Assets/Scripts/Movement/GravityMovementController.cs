@@ -8,12 +8,22 @@ public class GravityMovementController : MonoBehaviour
 { 
     [SerializeField] private float speed = 2f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private CharacterController controller;
-
+    
+    
+    private CharacterController controller;
+    private AudioPlay jumpAudio;
+    
     private Vector2 moveInput;
     private bool jumpInput;
     private Vector3 velocity;
     private bool wasGrounded;
+    
+    
+    void Awake()
+    {
+       controller = gameObject.GetComponent<CharacterController>();
+       jumpAudio = gameObject.GetComponent<AudioPlay>();
+    }   
     
     void Update()
     {
@@ -89,6 +99,7 @@ public class GravityMovementController : MonoBehaviour
         {
             Debug.Log("Jumped!");
             jumpInput = true;
+            jumpAudio.PlayAudio();
         }
     }
 }
