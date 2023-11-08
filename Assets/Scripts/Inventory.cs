@@ -23,4 +23,9 @@ public class Inventory : MonoBehaviour
       found = default;
       return false;
    }
+
+   public void RemoveItem(Item item)
+   {
+      items.Remove(item);
+   }
 }

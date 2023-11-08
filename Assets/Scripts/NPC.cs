@@ -1,11 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public void TalkTo()
+    protected Animator animator;
+
+    private void Awake()
     {
-        Debug.Log("Talking...");
+        animator = GetComponent<Animator>();
+    }
+
+    public virtual void InteractWith()
+    {
+        Debug.Log("Interacting...");
     }
 }

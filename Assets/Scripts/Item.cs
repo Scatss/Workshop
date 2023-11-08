@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,28 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private Inventory inventory;
-    
+    [SerializeField] private Transform playerHand;
+
+    private bool hasBeenPickedUp;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
+
     public void PickUp()
     {
         inventory.items.Add(this);
+        animator.enabled = false;
+        hasBeenPickedUp = true;
+    }
+
+    private void FixedUpdate()
+    {
+        if (hasBeenPickedUp)
+        {
+            transform.position = playerHand.position;
+        }
     }
 }
