@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class Human : NPC
 {
-    [SerializeField] private AudioClip angrySound;
-    [SerializeField] private AudioClip happySound;
-
     private AudioSource source;
 
     private void Awake()
@@ -25,8 +22,9 @@ public class Human : NPC
         Console.WriteLine("Talking...");
     }
 
-    public void PlaySound(ulong clip)
+    public void PlaySound(AudioClip clip)
     {
-        source.Play(clip);
+        source.clip = clip;
+        source.Play();
     }
 }

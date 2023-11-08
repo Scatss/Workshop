@@ -35,12 +35,12 @@ public class MovementController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;
     }

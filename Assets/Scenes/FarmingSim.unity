@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &291742864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1934,13 +1934,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2889448750121110176}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2889448750121110177}
+        m_TargetAssemblyTypeName: Human, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 2032cbfa7cd1c0245aa710f89a5c736d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 291742863}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2275,13 +2287,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2889448750121110176}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2889448750121110177}
+        m_TargetAssemblyTypeName: Human, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7cd70c4f4c2bfbd458f5aa5b215f7313, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 291742863}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2373,18 +2397,6 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 238673986}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 919132148642993348}
         m_TargetAssemblyTypeName: Animal, Assembly-CSharp
         m_MethodName: InteractWith
@@ -2465,8 +2477,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646918460}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.11317387, y: 0, z: 12.382017}
+  m_LocalRotation: {x: -0, y: -0.99100846, z: -0, w: -0.13379997}
+  m_LocalPosition: {x: -3.7993934, y: 0, z: 12.329084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2474,7 +2486,7 @@ Transform:
   - {fileID: 1526869110}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -195.378, z: 0}
 --- !u!1 &1747879652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,10 +2943,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 238673986}
+      - m_Target: {fileID: 291742863}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 919132148432967696}
+        m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
+        m_MethodName: OnDisable
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2958,10 +2982,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 238673986}
+      - m_Target: {fileID: 291742863}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 919132148432967696}
+        m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
+        m_MethodName: OnEnable
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3468,6 +3504,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1994900358}
     m_Modifications:
+    - target: {fileID: 3838950739552315517, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
+      propertyPath: angrySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 43571d9ba3e7c1c489b8f9349940d52c, type: 3}
+    - target: {fileID: 3838950739552315517, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
+      propertyPath: happySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cd70c4f4c2bfbd458f5aa5b215f7313, type: 3}
     - target: {fileID: 3993299461174340158, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3516,6 +3560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farmer_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 9055601603331143801, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
 --- !u!1 &2044691067291272280
@@ -3541,11 +3589,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3993299461174340158, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
   m_PrefabInstance: {fileID: 1457405183898434084}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2889448750121110176 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4332704868369068164, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
+--- !u!114 &2889448750121110177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3838950739552315517, guid: d92134449a66cda4d8d8a5a212f65ccf, type: 3}
   m_PrefabInstance: {fileID: 1457405183898434084}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9062f07065303db48b5ed134e5626492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3124046516034478552
 PrefabInstance:
   m_ObjectHideFlags: 0
