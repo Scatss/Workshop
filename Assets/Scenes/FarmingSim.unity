@@ -184,7 +184,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7684874883764627007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Item, Assembly-CSharp
         m_MethodName: PickUp
         m_Mode: 1
@@ -3833,7 +3833,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7056569218148138113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f60d48a23f40fa42b50a38651a408cd, type: 3}
+  m_Script: {fileID: 11500000, guid: d0a41d0e738f9b145a04c29854bc50b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 3124046516034478553}

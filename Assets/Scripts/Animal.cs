@@ -17,10 +17,10 @@ public class Animal : NPC
 
     private void Feed()
     {
-        if (inventory.FindItem(out Item item))
+        if (inventory.FindItem(out Food food))
         {
-            inventory.RemoveItem(item);
-            Destroy(item);
+            inventory.RemoveItem(food);
+            Destroy(food);
             wasFed = true;
             
             animator.SetBool("Fed", true);
