@@ -20,7 +20,7 @@ public class Animal : NPC
         if (inventory.FindItem(out Food food))
         {
             inventory.RemoveItem(food);
-            Destroy(food);
+            Destroy(food.gameObject);
             wasFed = true;
             
             animator.SetBool("Fed", true);
