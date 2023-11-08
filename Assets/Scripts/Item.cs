@@ -19,7 +19,10 @@ public class Item : MonoBehaviour
     public void PickUp()
     {
         inventory.items.Add(this);
-        animator.enabled = false;
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
         hasBeenPickedUp = true;
     }
 
