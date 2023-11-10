@@ -13,8 +13,6 @@ public class MovementController : MonoBehaviour
         moveVertically;
     [SerializeField] private AudioPlay jumpAudio;
     [SerializeField] private LayerMask interactableLayer;
-    [SerializeField] private Transform objectiveTarget;
-    [SerializeField] private Sprite objectiveTargetSprite;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
