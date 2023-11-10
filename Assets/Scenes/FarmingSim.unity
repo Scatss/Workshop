@@ -9566,6 +9566,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8272836338552796912, guid: ca221b05f24c33540be8a97390d9b7ae, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272836338552796912, guid: ca221b05f24c33540be8a97390d9b7ae, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 5e2ef512bcd80404f9add20568fda45b, type: 2}
