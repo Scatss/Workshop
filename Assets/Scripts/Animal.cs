@@ -7,15 +7,7 @@ public class Animal : NPC
     [SerializeField] private Inventory inventory;
     private bool wasFed;
 
-    public override void InteractWith()
-    {
-        base.InteractWith();
-        
-        Feed();
-
-    }
-
-    private void Feed()
+    public void Feed()
     {
         if (inventory.FindItem(out Food food))
         {

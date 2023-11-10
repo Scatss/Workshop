@@ -4,22 +4,22 @@ using UnityEngine;
 public class Human : NPC
 {
     private AudioSource source;
+    
+    [SerializeField] private Dialogue dialogue;
 
     private void Awake()
     {
         source = gameObject.GetComponent<AudioSource>();
     }
-    
-    public override void InteractWith()
-    {
-        base.InteractWith();
 
-        Talk();
+    public void Talk()
+    {
+        DialogueManager.Instance.StartDialogue(dialogue);
     }
-
-    private void Talk()
+    
+    public void SwitchDialogue(Dialogue newDialogue)
     {
-        Console.WriteLine("Talking...");
+        dialogue = newDialogue;
     }
 
     public void PlaySound(AudioClip clip)

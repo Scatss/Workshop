@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    [SerializeField] public string name;
     [SerializeField] private Inventory inventory;
     [SerializeField] private Transform playerHand;
 

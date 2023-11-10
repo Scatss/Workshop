@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,16 +12,17 @@ public class MovementController : MonoBehaviour
     [SerializeField] private Transform moveHorizontally,
         moveVertically;
     [SerializeField] private AudioPlay jumpAudio;
+    [SerializeField] private LayerMask interactableLayer;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
     private bool jumpInput;
-    private bool interactInput;
-    private bool canInteract;
     private bool wasGrounded;
     private Vector3 velocity;
+    private Transform _transform;
 
     private Animator animator;
+    private PlayerInput input;
     private CharacterController controller;
     
     private bool moveHorizontallyEmpty;
@@ -28,21 +30,28 @@ public class MovementController : MonoBehaviour
 
     private void Awake()
     {
+        _transform = transform;
+        
         moveHorizontallyEmpty = moveHorizontally == null;
         moveVerticallyEmpty = moveVertically == null;
         
         animator = gameObject.GetComponent<Animator>();
+        input = gameObject.GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
+        
+        input.actions["Interact"].performed += OnInteract;
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        //input.actions["Interact"].performed += OnInteract;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;
+        //input.actions["Interact"].performed -= OnInteract;
     }
 
     private void Update()
@@ -65,14 +74,6 @@ public class MovementController : MonoBehaviour
         {
             velocity.y = jumpForce;
             jumpInput = false;
-        }
-
-        if (interactInput)
-        {
-            if (canInteract)
-            {
-                interactInput = false;
-            }
         }
 
         bool isGrounded = controller.isGrounded;
@@ -137,16 +138,23 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnPause(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            interactInput = true;
+            ApplicationHandler.Instance.PauseGame();
         }
     }
 
-    public void CanInteract(bool value)
+    private void OnInteract(InputAction.CallbackContext context)
     {
-        canInteract = value;
+        if(!Physics.Raycast(_transform.position + (Vector3.up * .3f) + (_transform.forward * .2f),
+               _transform.forward, out RaycastHit hit, 3f, interactableLayer)) return;
+
+        if (!hit.transform.TryGetComponent(out NPC npc)) return;
+        
+        Debug.Log(npc);
+        
+        npc.InteractWith();
     }
 }
