@@ -13,6 +13,8 @@ public class MovementController : MonoBehaviour
         moveVertically;
     [SerializeField] private AudioPlay jumpAudio;
     [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private Transform objectiveTarget;
+    [SerializeField] private Sprite objectiveTargetSprite;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -28,6 +30,8 @@ public class MovementController : MonoBehaviour
     private bool moveHorizontallyEmpty;
     private bool moveVerticallyEmpty;
 
+    private ApplicationHandler handler;
+
     private void Awake()
     {
         _transform = transform;
@@ -38,6 +42,7 @@ public class MovementController : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         input = gameObject.GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
+        handler = FindObjectOfType<ApplicationHandler>();
         
         input.actions["Interact"].performed += OnInteract;
     }
@@ -45,13 +50,11 @@ public class MovementController : MonoBehaviour
     private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //input.actions["Interact"].performed += OnInteract;
     }
 
     private void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;
-        //input.actions["Interact"].performed -= OnInteract;
     }
 
     private void Update()
@@ -142,7 +145,7 @@ public class MovementController : MonoBehaviour
     {
         if (context.performed)
         {
-            ApplicationHandler.Instance.PauseGame();
+            handler.PauseGame();
         }
     }
 

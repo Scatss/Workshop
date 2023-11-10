@@ -7,20 +7,6 @@ using UnityEngine.SceneManagement;
 // It can be used together with UnityEventOnTrigger, or UI-button-events, to decide when a scene should be changed or the game should be closed
 public class ApplicationHandler : MonoBehaviour
 {
-    public static ApplicationHandler Instance;
-    
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    
     public void ChangeScene(string name)
     {
         // Load the scene named "NewScene"
